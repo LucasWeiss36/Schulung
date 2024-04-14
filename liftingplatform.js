@@ -18,7 +18,7 @@ let liftingplatform = [
           answer_3: "Nein, es gibt keine besinderen Bestimmungen",
           answer_4: "Nur bei Geräten mit Ottomotoren",
         },
-        right_answer: 2,
+        right_answer: [2],
       },
       {
         question: "Muss die Bedienungsanleitung der Hersteller auf der Baustelle oder am Arbeitsplatz vorliegen?",
@@ -28,7 +28,7 @@ let liftingplatform = [
           answer_3: "Ja, sie sind aber durch einen Schlüssel durch den Werkstattmeister wegzuschließen und dürfen nur dem Monteur ausgehändigt werden",
           answer_4: "Nein, Betriebsanleitung verbleiben beim Händler für Hubarbeitsbühnen",
         },
-        right_answer: 1,
+        right_answer: [1],
       },
       {
         question: "Sie wollen auf der Bühne eine Leiter anbringen, damit soll die erreichbare Höhe erwitert werden. Ist dies erlaubt?",
@@ -38,7 +38,7 @@ let liftingplatform = [
           answer_3: "Ja, sie muss aber aus Holz gefertigt sein, Dass es keine Stromschläge durch Oberleitung geben kann",
           answer_4: "Ja, ohne Einschränkung",
         },
-        right_answer: 1,
+        right_answer: [1],
       },
       {
         question: "Warum verfügen Hubarbeitsbühnen über einen Notablass?",
@@ -48,7 +48,7 @@ let liftingplatform = [
           answer_3: "Diese Vorrichtung ermöglicht es dem Bediener (der sich am Boden befindet), die Führung vom Korb auf die Notbedienung über den Boden umzuschalten",
           answer_4: "Der Notablass ist dem Mechaniker vorbehalten",
         },
-        right_answer: 3,
+        right_answer: [3],
         img: "/img/Frage_5_hebebuene.png"
       },
       {
@@ -69,7 +69,7 @@ let liftingplatform = [
           answer_3: "Juli 2020",
           answer_4: "Januar 2020",
         },
-        right_answer: 4,
+        right_answer: [4],
         img: "/img/Frage_11_hebebuene.png"
       },
       {
@@ -81,7 +81,7 @@ let liftingplatform = [
           answer_4: "20%",
           answer_5: "10%",
         },
-        right_answer: 3,
+        right_answer: [3],
       },
       {
         question: "Was gehört zur Ausrüstung eines Bedieners von Hubarbeitsbühnen?",
@@ -91,7 +91,7 @@ let liftingplatform = [
           answer_3: "Deospray",
           answer_4: "Persönliche Schutzausrüstung wie Sicherheutsschuhe etc.",
         },
-        right_answer: 4,
+        right_answer: [4],
       },
       {
         question: "Welche Gefährdungen können beim Arbeiten mit Hubarbeitsbühnen auftreten?",
@@ -111,7 +111,7 @@ let liftingplatform = [
           answer_4: "den Drehknopf für die Hubgeschwindigkeit der Bühne",
           answer_5: "um den Notaus bzw. Nothalteknopf",
         },
-        right_answer: 5,
+        right_answer: [5],
         img: "/img/Frage_24_hebebuene.png"
       },
 ]

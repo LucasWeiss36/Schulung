@@ -7,7 +7,7 @@ let occupationalsafety = [
           answer_3: "Ja, alle elektrischen Betriebsmittel sind in regelmäßigen Zeitabständen zu überprüfen",
           answer_4: "Nein, Geräte mit GS-Zeichen müssen nur nach Reparatur überprüft werden",
         },
-        right_answer: 3,
+        right_answer: [3],
       },
       {
         question: "Welche Bedeutung hat diese Zeichen?",
@@ -17,7 +17,7 @@ let occupationalsafety = [
           answer_3: "Nicht schalten. Es wird gearbeitet",
           answer_4: "Vorsicht. Unbefugten Zutritt verboten",
         },
-        right_answer: 4,
+        right_answer: [4],
       },
       {
         question: "Wodurch kann eine Gefährdung beim Arbeiten an Maschinen verursacht werden?",
@@ -35,7 +35,7 @@ let occupationalsafety = [
           answer_2: "Maximale Aufenthaltsdauer von 1 Stunde",
           answer_3: "Hier müssen Gehörschutzmittel benutzt werden",
         },
-        right_answer: 3,
+        right_answer: [3],
       },
       {
         question: "Was gehört zu den Persönlichen Schutzausrüstungen?",
@@ -46,7 +46,7 @@ let occupationalsafety = [
           answer_4: "Schutzhelm, Schutzschuhe, Schutzbrille, Gehörschutz",
           answer_5: "Reinigungsmaterial",
         },
-        right_answer: 4,
+        right_answer: [4],
       },
       {
         question: "Eine Führungskraft bemerkt, dass sich ein Mitarbeiter in angetrunkenem Zustand befindet. Was muss die Führungskraft tun?",
@@ -57,7 +57,7 @@ let occupationalsafety = [
           answer_4: "Die Führungskraft unterbindet die Weiterarbeit und sorgt für einen sichheren Heimweg",
           answer_5: "Die Führungskraft schickt ihn ins nächste Krankenhaus, um eine Blutprobe entnehmen zu lassen",
         },
-        right_answer: 4,
+        right_answer: [4],
       },
       {
         question: "Was muss ein Beschäftigt bzw. eine Beschäftigte tun, wenn er oder sie im Betrieb sicherheitstechnische Mängel feststellt?",
@@ -67,6 +67,6 @@ let occupationalsafety = [
           answer_3: "Die Person beendet die begonnene Arbeit und unterrichtet dann den Betriebrat von dem Mangel",
           answer_4: "Die Person beendet seine angefangene Arbeit unnd beseitigt dann den Mangel",
         },
-        right_answer: 1,
+        right_answer: [1],
       },
 ]

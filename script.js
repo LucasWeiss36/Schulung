@@ -2,6 +2,13 @@ let currentQuestion = 0;
 let rightAnswers = 0;
 let selectedAnswer = [];
 let selectedCurrentAnswer = [];
+let rightAnswersComplete = {}
+
+//* right answers für jeden frage bogen seperat 
+//TODO PSA und Leitern durchlesen und bestätigungs button
+//* weiter sperren wenn nichts angeklickt
+//TODO pdf erstellen und download
+//TODO bilder zu den fragebögen hinzufügen
 
 function init(array) {
   document.getElementById("buttons").classList.add("d-none");
@@ -15,9 +22,12 @@ function renderQuestionCard(array) {
   let question = array[currentQuestion];
   for (let i = 0; i < answersLength; i++) {
     document.getElementById("question").innerHTML = question["question"];
+    document.getElementById("answer").innerHTML = array[currentQuestion]["right_answer"]
     document.getElementById("answers").innerHTML += answerTemplate(i, array);
   }
+  document.getElementById("next-btn").disabled = true;
   showTotal(array);
+  console.error(rightAnswers);
 }
 
 function answerTemplate(i, array) {
@@ -33,7 +43,6 @@ function answerTemplate(i, array) {
 
 function nextQuestion(array) {
   checkDuplicate();
-  document.getElementById("next-btn").disabled = false;
   document.getElementById("answers").innerHTML = "";
   saveSelection();
   checkAnswers(array);
@@ -45,10 +54,13 @@ function checkedBox(selection) {
   let selectedCheckBox = document.getElementById(`answerCheckBox-${selection}`);
   if (selectedCheckBox.checked == true) {
     selectedCheckBox.checked = false;
+    document.getElementById("next-btn").disabled = true;
   } else {
     selectedCheckBox.checked = true;
   }
   saveCurrentSelection(selection, selectedCheckBox);
+  checkCheckBoxes();
+  console.log(selectedCurrentAnswer);
 }
 
 function saveCurrentSelection(selection, selectedCheckBox) {
@@ -77,17 +89,19 @@ function checkDuplicate() {
 
 function checkAnswers(array) {
   let right = array[currentQuestion]["right_answer"];
+  console.log("right answer: " + right);
   if (right.length !== selectedAnswer[currentQuestion].length) {
     return false;
   }
   for (let i = 0; i < selectedAnswer.length; i++) {
     if (right[i] == selectedAnswer[currentQuestion][i]) {
-      rightAnswers++;
+      rightAnswers += 1;
       return true;
     } else {
       return false;
     }
   }
+ 
 }
 
 function showTotal(array) {
@@ -100,7 +114,11 @@ function complete(array) {
     document.getElementById("buttons").classList.remove("d-none");
     document.getElementById("content").classList.add("d-none");
     document.getElementById(`${checkparameter(array)}-btn`).disabled = true;
+    setAnswersValues(rightAnswersComplete, array)
     currentQuestion = 0;
+    rightAnswers = 0
+    selectedAnswer = []
+    console.log(rightAnswersComplete);
   } else {
     renderQuestionCard(array);
   }
@@ -117,8 +135,20 @@ function checkparameter(array) {
 }
 
 function updatedBtn(array) {
-  document.getElementById("but").innerHTML = `
+  document.getElementById("but").innerHTML = /*HTML*/`
     <span><b id="current-question">X</b> von <b id="all-questions">Y</b></span>
-    <button id="next-btn" onclick="nextQuestion(${checkparameter(array)})" type="button" class="btn btn-primary" >Weiter</button>
+    <button id="next-btn" onclick="nextQuestion(${checkparameter(array)})" type="button" class="btn btn-primary">Weiter</button>
     `;
+}
+
+function checkCheckBoxes(){
+  for (let i = 0; i < selectedCurrentAnswer.length; i++) {
+    if (selectedCurrentAnswer.indexOf(i)){
+    document.getElementById("next-btn").disabled = false;
+    }
+  }
+}
+
+function setAnswersValues(obj, array){
+  obj[checkparameter(array)] = rightAnswers;
 }
