@@ -22,7 +22,6 @@ function renderQuestionCard(array) {
   let question = array[currentQuestion];
   for (let i = 0; i < answersLength; i++) {
     document.getElementById("question").innerHTML = question["question"];
-    document.getElementById("answer").innerHTML = array[currentQuestion]["right_answer"]
     document.getElementById("answers").innerHTML += answerTemplate(i, array);
   }
   document.getElementById("next-btn").disabled = true;
@@ -30,16 +29,7 @@ function renderQuestionCard(array) {
   console.error(rightAnswers);
 }
 
-function answerTemplate(i, array) {
-  i = i + 1;
-  let answers = array[currentQuestion]["answers"][`answer_${i}`];
-  return /*HTML*/ `
-    <div onclick="checkedBox('${i}')" class="card mb-2 answer-card p-2 d-flex flex-row">
-      <input class="form-check-input me-2" type="checkbox"  id="answerCheckBox-${i}">
-      <label for="answerCheckBox-${i}" id="answer-${i}">${answers}</label>
-    </div>
-    `;
-}
+
 
 function nextQuestion(array) {
   checkDuplicate();
@@ -134,13 +124,6 @@ function checkparameter(array) {
   }
 }
 
-function updatedBtn(array) {
-  document.getElementById("but").innerHTML = /*HTML*/`
-    <span><b id="current-question">X</b> von <b id="all-questions">Y</b></span>
-    <button id="next-btn" onclick="nextQuestion(${checkparameter(array)})" type="button" class="btn btn-primary">Weiter</button>
-    `;
-}
-
 function checkCheckBoxes(){
   for (let i = 0; i < selectedCurrentAnswer.length; i++) {
     if (selectedCurrentAnswer.indexOf(i)){
@@ -151,4 +134,20 @@ function checkCheckBoxes(){
 
 function setAnswersValues(obj, array){
   obj[checkparameter(array)] = rightAnswers;
+}
+
+function renderPSA(){
+  document.getElementById("questions").classList.add("d-none")
+  document.getElementById("content").classList.remove("d-none")
+  document.getElementById("reading").classList.remove("d-none")
+  document.getElementById("buttons").classList.add("d-none");
+  document.getElementById("reading").innerHTML = HTMLTemplatePSA();
+}
+
+function renderLadders(){
+  document.getElementById("questions").classList.add("d-none")
+  document.getElementById("content").classList.remove("d-none")
+  document.getElementById("reading").classList.remove("d-none")
+  document.getElementById("buttons").classList.add("d-none");
+  document.getElementById("reading").innerHTML = HTMLTemplateLadders();
 }
