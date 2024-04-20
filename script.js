@@ -3,9 +3,10 @@ let rightAnswers = 0;
 let selectedAnswer = [];
 let selectedCurrentAnswer = [];
 let rightAnswersComplete = {}
+let questionsComplete = []
 
 //* right answers für jeden frage bogen seperat 
-//TODO PSA und Leitern durchlesen und bestätigungs button
+//* PSA und Leitern durchlesen und bestätigungs button
 //* weiter sperren wenn nichts angeklickt
 //TODO pdf erstellen und download
 //TODO bilder zu den fragebögen hinzufügen
@@ -13,6 +14,7 @@ let rightAnswersComplete = {}
 function init(array) {
   document.getElementById("buttons").classList.add("d-none");
   document.getElementById("content").classList.remove("d-none");
+  document.getElementById("questions").classList.remove("d-none");
   updatedBtn(array);
   renderQuestionCard(array);
 }
@@ -26,7 +28,6 @@ function renderQuestionCard(array) {
   }
   document.getElementById("next-btn").disabled = true;
   showTotal(array);
-  console.error(rightAnswers);
 }
 
 
@@ -50,7 +51,6 @@ function checkedBox(selection) {
   }
   saveCurrentSelection(selection, selectedCheckBox);
   checkCheckBoxes();
-  console.log(selectedCurrentAnswer);
 }
 
 function saveCurrentSelection(selection, selectedCheckBox) {
@@ -79,7 +79,6 @@ function checkDuplicate() {
 
 function checkAnswers(array) {
   let right = array[currentQuestion]["right_answer"];
-  console.log("right answer: " + right);
   if (right.length !== selectedAnswer[currentQuestion].length) {
     return false;
   }
@@ -108,7 +107,8 @@ function complete(array) {
     currentQuestion = 0;
     rightAnswers = 0
     selectedAnswer = []
-    console.log(rightAnswersComplete);
+    questionsComplete.push(true)
+    checkSolvedQuestions()
   } else {
     renderQuestionCard(array);
   }
@@ -150,4 +150,40 @@ function renderLadders(){
   document.getElementById("reading").classList.remove("d-none")
   document.getElementById("buttons").classList.add("d-none");
   document.getElementById("reading").innerHTML = HTMLTemplateLadders();
+}
+
+function completePSA(){
+  rightAnswersComplete["PSA"] = true
+  document.getElementById("content").classList.add("d-none")
+  document.getElementById("reading").classList.add("d-none")
+  document.getElementById("buttons").classList.remove("d-none");
+  document.getElementById("psa-btn").disabled = true
+  questionsComplete.push(true)
+  loadResult()
+}
+function completeLadders(){
+  rightAnswersComplete["Ladders"] = true
+  document.getElementById("content").classList.add("d-none")
+  document.getElementById("reading").classList.add("d-none")
+  document.getElementById("buttons").classList.remove("d-none");
+  document.getElementById("ladders-btn").disabled = true
+  questionsComplete.push(true)
+  loadResult()
+}
+
+function checkSolvedQuestions(){
+  if(questionsComplete.length >= 3){
+    document.getElementById("psa-btn").disabled = false
+    document.getElementById("ladders-btn").disabled = false
+  }
+}
+
+function loadResult(){
+  if(questionsComplete.length == 5){
+    document.getElementById("buttons").classList.add("d-none")
+    document.getElementById("content").classList.remove("d-none")
+    document.getElementById("content").innerHTML = /*HTML*/`
+    <p class="end">Alles fertig</p>
+    `
+  }
 }

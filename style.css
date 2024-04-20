@@ -57,3 +57,26 @@
   .w-min-content{
     width: min-content;
   }
+
+  .text{
+    width: 300px;
+    text-align: center;
+    margin: 0;
+  }
+
+
+  .end{
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    color: white;
+    font-size: 100px;
+    font-weight: bold;
+    text-decoration: wavy;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+  }

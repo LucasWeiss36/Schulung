@@ -117,7 +117,7 @@ function HTMLTemplatePSA(){
         </ul>
     </div>
     <div class="d-flex justify-content-end mt-5">
-      <button id="next-btn" onclick="" type="button" class="btn btn-primary">Weiter</button>
+      <button id="next-btn" onclick="completePSA()" type="button" class="btn btn-primary">Weiter</button>
     </div>
     `;
   }
@@ -199,7 +199,7 @@ function HTMLTemplatePSA(){
         </div>
     </div>
     <div class="d-flex justify-content-end mt-5">
-      <button id="next-btn" onclick="" type="button" class="btn btn-primary">Weiter</button>
+      <button id="next-btn" onclick="completeLadders()" type="button" class="btn btn-primary">Weiter</button>
     </div>
     `;
   }
