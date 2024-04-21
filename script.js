@@ -6,11 +6,6 @@ let rightAnswersComplete = {}
 let questionsComplete = []
 let name ;
 
-//* right answers für jeden frage bogen seperat 
-//* PSA und Leitern durchlesen und bestätigungs button
-//* weiter sperren wenn nichts angeklickt
-// * pdf erstellen und download
-//TODO bilder zu den fragebögen hinzufügen
 
 function init(array) {
   document.getElementById("buttons").classList.add("d-none");
@@ -200,7 +195,6 @@ function saveName(){
   if(inputName !== ""){
     name = inputName;
     document.getElementById("buttons").classList.remove("d-none");
-    // document.getElementById("lll").classList.remove("d-none");
     document.getElementById("name").classList.add("d-none");
 
   }
