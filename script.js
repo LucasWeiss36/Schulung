@@ -196,7 +196,6 @@ function saveName(){
     name = inputName;
     document.getElementById("buttons").classList.remove("d-none");
     document.getElementById("name").classList.add("d-none");
-
   }
 }
 
