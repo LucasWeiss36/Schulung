@@ -4,11 +4,12 @@ let selectedAnswer = [];
 let selectedCurrentAnswer = [];
 let rightAnswersComplete = {}
 let questionsComplete = []
+let name ;
 
 //* right answers für jeden frage bogen seperat 
 //* PSA und Leitern durchlesen und bestätigungs button
 //* weiter sperren wenn nichts angeklickt
-//TODO pdf erstellen und download
+// * pdf erstellen und download
 //TODO bilder zu den fragebögen hinzufügen
 
 function init(array) {
@@ -27,6 +28,11 @@ function renderQuestionCard(array) {
     document.getElementById("answers").innerHTML += answerTemplate(i, array);
   }
   document.getElementById("next-btn").disabled = true;
+  if(question["img"]){
+    document.getElementById("question-img").setAttribute("src", question["img"]) 
+  }else if (!question["img"]){
+    document.getElementById("question-img").setAttribute("src", " ")
+  }
   showTotal(array);
 }
 
@@ -180,10 +186,34 @@ function checkSolvedQuestions(){
 
 function loadResult(){
   if(questionsComplete.length == 5){
+    pdf()
     document.getElementById("buttons").classList.add("d-none")
     document.getElementById("content").classList.remove("d-none")
     document.getElementById("content").innerHTML = /*HTML*/`
-    <p class="end">Alles fertig</p>
+    <p class="end">Schulung/Unterweisung beendet</p>
     `
   }
 }
+
+function saveName(){
+  inputName = document.getElementById("floatingInputValue").value
+  if(inputName !== ""){
+    name = inputName;
+    document.getElementById("buttons").classList.remove("d-none");
+    // document.getElementById("lll").classList.remove("d-none");
+    document.getElementById("name").classList.add("d-none");
+
+  }
+}
+
+function capitalizeWords() {
+  let value = document.getElementById("floatingInputValue").value
+  let words = value.split(" ");
+  
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+  }
+  
+  return words.join(" ");
+}
+

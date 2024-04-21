@@ -1,3 +1,4 @@
+
 .answer-card:hover{
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.05);
@@ -62,15 +63,13 @@
     width: 300px;
     text-align: center;
     margin: 0;
+    cursor: default;
   }
 
 
   .end{
-    width: 100vw;
-    height: 100vh;
-    background-color: red;
-    color: white;
-    font-size: 100px;
+    color: rgb(0, 0, 0);
+    font-size: 45px;
     font-weight: bold;
     text-decoration: wavy;
     position: absolute;
@@ -79,4 +78,13 @@
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
+  }
+
+  #question-img{
+    position: absolute;
+    top: -210px;
+    left: 480px;
+    transform: translate(-35%, -25%);
+    border-radius: 40px;
+    max-height: 275px;
   }

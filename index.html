@@ -21,19 +21,26 @@
     <header>
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-              <a class="navbar-brand d-flex align-items-center" href="#">
+              <a class="navbar-brand d-flex align-items-center gap-2" href="#">
                 <img src="img/ldb256.png" alt="Logo" height="50px" class="d-inline-block align-text-top">
                 <span>Schulung/Unterweisung</span>
               </a>
             </div>
          </nav>
     </header>
-    <button class="btn btn-secondary mb-5 px-5 fs-2 d-none" onclick="pdf()">Download</button>
-   <div id="buttons" class="d-flex flex-column position-absolute top-50 start-50 translate-middle">
+    <form id="name" class="form-floating d-flex flex-column align-items-center gap-2 position-absolute top-50 start-50 translate-middle">
+        <input autocomplete="off" required type="text" class="form-control" id="floatingInputValue">
+        <label for="floatingInputValue">Vor/- und Nachname</label>
+        <div class="col-auto">
+            <button onclick="saveName()" type="submit" class="btn btn-primary mb-3">Bestätigen</button>
+          </div>
+    </form>
+    <!-- <button id="lll" onclick="loadResult()" type="submit" class="btn btn-primary mb-3 d-none">herunterladen</button> -->
+   <div id="buttons" class="d-flex flex-column position-absolute top-50 start-50 translate-middle d-none">
         <div class="d-flex justify-content-center mb-5 rounded bg-secondary text-light p-2">
             <p class="text">Zuerst Stapler, Hebebühne und Arbeitsicherheit bearbeiten (reihenfolge ist egal), danach werden die Bereiche PSA und Leitern freigeschalten</p>
         </div>
-        <button onclick="init(forklift)" id="forklift-btn" type="button" class="btn btn-primary mb-4 px-5 fs-2">Stapler</button>
+        <button onclick="init(forklift)" id="forklift-btn" type="button" class="btn btn-primary mb-4 px-5 fs-2">Flurförderfahrzeuge</button>
         <button onclick="init(liftingplatform)" id="liftingplatform-btn" type="button" class="btn btn-primary mb-4 px-5 fs-2">Hebebühne</button>
         <button onclick="init(occupationalsafety)" id="occupationalsafety-btn" type="button" class="btn btn-primary mb-4 px-5 fs-2">Arbeitssicherheit</button>
         <button onclick="renderPSA()" id="psa-btn" type="button" class="btn btn-primary mb-4 px-5 fs-2" disabled>PSA</button>
@@ -50,6 +57,7 @@
                <div id="footer" class="d-flex justify-content-between question-card-footer mt-3">
                </div>
             </div>
+            <img id="question-img" src="" alt="">
         </div>
     </main>
 </body>

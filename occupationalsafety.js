@@ -18,6 +18,7 @@ let occupationalsafety = [
           answer_4: "Vorsicht. Unbefugten Zutritt verboten",
         },
         right_answer: [4],
+        img: "img/Frage_29_ArSi.png"
       },
       {
         question: "Wodurch kann eine Gefährdung beim Arbeiten an Maschinen verursacht werden?",
@@ -36,6 +37,7 @@ let occupationalsafety = [
           answer_3: "Hier müssen Gehörschutzmittel benutzt werden",
         },
         right_answer: [3],
+        img: "img/Frage_15_ArSi.png"
       },
       {
         question: "Was gehört zu den Persönlichen Schutzausrüstungen?",
